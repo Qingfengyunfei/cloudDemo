@@ -16,6 +16,9 @@
     <module>cloud-eureka-server9001</module>
     <module>cloud-eureka-server9002</module>
     <module>cloud-provider-payment8004</module>
+    <module>cloud-providerconsul-payment8006</module>
+    <module>cloud-consumerzk-order80</module>
+    <module>cloud-consumerconsul-order80</module>
   </modules>
 
   <!-- 统一管理jar包版本-->
