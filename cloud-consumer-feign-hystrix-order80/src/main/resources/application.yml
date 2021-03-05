@@ -13,3 +13,8 @@ eureka:
 ribbon:
   ReadTimeout: 5000
   ConnectTimeout: 5000
+
+# 开启客户端熔断器
+feign:
+  hystrix:
+    enabled: true
