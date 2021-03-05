@@ -1,5 +1,6 @@
 package com.yunfan.springcloud.service;
 
+
 /**
  * @author Administrator
  * @description
@@ -21,4 +22,11 @@ public interface PaymentService {
      * @return
      */
     String paymentInfo_Timeout(Integer id);
+
+    /**
+     * 服务熔断方法
+     * @param id
+     * @return
+     */
+    String paymentCircuitBreaker(Integer id);
 }
