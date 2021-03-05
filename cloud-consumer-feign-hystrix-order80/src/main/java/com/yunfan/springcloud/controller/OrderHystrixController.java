@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @Slf4j
-@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
+@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod",commandProperties = {
+        @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "5000")
+})
 public class OrderHystrixController {
 
     @Autowired
