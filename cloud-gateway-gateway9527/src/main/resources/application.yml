@@ -19,6 +19,27 @@ spring:
           #uri: http://localhost:8001
           predicates:
             - Path=/payment/lb/**
+            - After=2021-04-20T16:36:45.023+08:00[Asia/Shanghai]
+            - Cookie=username,[a-z]+   #Cookie中要带username属性并且值为任意小写字母
+            - Header=X-Request-Id,\d+ #请求头要有X-Request-Id属性并且值要满足为正数的正则表达式
+            - Host=**.yunfan.com
+            - Method=GET,POST
+            - Query=color,gree.  #查询条件带color 如果设置匹配规则，则value还需要满足正则匹配规则
+        - id: ip_route    #设置只允许指定远程ip访问
+          uri: http://localhost:8001
+          predicates:
+            - Path=/payment/feign/timeout
+            - RemoteAddr=192.168.79.101
+#        - id: weight_high     #断言匹配高权重
+#          uri: http://localhost:8001
+#          predicates:
+#            - Path=/payment/feign/timeout
+#            - Weight=group1,9
+#        - id: weight_low
+#          uri: http://localhost:8002
+#          predicates:        #断言匹配低权重
+#            - Path=/payment/feign/timeout
+#            - Weight=group1,1
 eureka:
   instance:
     hostname: gateway9527
