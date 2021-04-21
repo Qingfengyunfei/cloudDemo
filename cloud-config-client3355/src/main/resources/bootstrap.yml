@@ -1,0 +1,16 @@
+server:
+  port: 3355
+spring:
+  application:
+    name: config-client
+  cloud:
+    #config客户端配置
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: company #读取后缀名称  上述3者综合：master分支上config-company.yml
+      uri: http://localhost:3344 #配置中心地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka9001.com:9001/eureka,http://eureka9002.com:9002/eureka #集群版
