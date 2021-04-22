@@ -10,6 +10,12 @@ spring:
       name: config #配置文件名称
       profile: company #读取后缀名称  上述3者综合：master分支上config-company.yml
       uri: http://localhost:3344 #配置中心地址
+  #rabbitmq相关配置
+  rabbitmq:
+    host: 192.168.79.101
+    port: 5672
+    username: admin
+    password: jing16
 eureka:
   client:
     service-url:
