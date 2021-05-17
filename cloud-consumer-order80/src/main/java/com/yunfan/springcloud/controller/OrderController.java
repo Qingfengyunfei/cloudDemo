@@ -69,4 +69,11 @@ public class OrderController {
         URI uri = serviceInstance.getUri();
         return restTemplate.getForObject(uri + "/payment/lb", String.class);
     }
+
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin() {
+        // 这里使用直接调用地址方法，不使用PAYMENT_URL 因为需要在restTemplate加上注解@LoadBalanced才能使得restTemplate具有负载能力
+        String result = restTemplate.getForObject("http://localhost:8001" + "/payment/zipkin/", String.class);
+        return result;
+    }
 }
